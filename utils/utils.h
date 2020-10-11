@@ -10,8 +10,6 @@ namespace bgagvabear {
 
     void printArr(int *arr, int size);
 
-    void performance_check(int *(*f)(int *arr, int size), int *arr, int size, int numberOfIterations);
-
-    void copy(const int *src, int *dest, int size);
+    void performance_check(void (*f)(int *arr, int size), int *arr, int size);
 }
 #endif //ACCELARATED_UTILS_H

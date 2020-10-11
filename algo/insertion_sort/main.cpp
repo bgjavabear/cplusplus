@@ -3,25 +3,22 @@
 
 using namespace std;
 
-int *insertionSort(int *input, int size);
+void insertionSort(int *input, int size);
 
 int main() {
     int input[10] = {16, 2, 3, 75, 46, 0, 4, 123, 78, 11};
     int inputSize = *(&input + 1) - input;
-    bgagvabear::performance_check(insertionSort, input, inputSize, 1000000);
+    bgagvabear::performance_check(insertionSort, input, inputSize);
 }
 
-int *insertionSort(int *input, int size) {
-    int result[size];
-    bgagvabear::copy(input, result, size);
+void insertionSort(int *input, int size) {
     int i = 1;
     while (i < size) {
         int j = i;
-        while (j > 0 && result[j - 1] > result[j]) {
-            bgagvabear::swap(j, j - 1, result);
+        while (j > 0 && input[j - 1] > input[j]) {
+            bgagvabear::swap(j, j - 1, input);
             j--;
         }
         i++;
     }
-    return result;
 }

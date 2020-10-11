@@ -20,22 +20,12 @@ namespace bgagvabear {
         std::cout << std::endl;
     }
 
-    void copy(const int *src, int *dest, int size) {
-        for (int i = 0; i < size; i++) {
-            dest[i] = src[i];
-        }
-    }
-
-    void performance_check(int *(*f)(int *arr, int size), int *arr, int size, int numberOfIterations) {
+    void performance_check(void (*f)(int *arr, int size), int *arr, int size) {
         auto start = std::chrono::high_resolution_clock::now();
-        for (int i = 0; i < numberOfIterations; i++) {
-            f(arr, size);
-        }
+        f(arr, size);
         auto end = std::chrono::high_resolution_clock::now();
-        auto duration = duration_cast<std::chrono::microseconds>(end - start);
-        std::cout << "Function executed " << numberOfIterations << " times. It took " << duration.count()
-                  << " microseconds"
-                  << std::endl;
+        auto duration = duration_cast<std::chrono::nanoseconds>(end - start);
+        std::cout << "Function executed in " << duration.count() << " nanoseconds." << std::endl;
     }
 }
 
