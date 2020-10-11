@@ -3,4 +3,4 @@ project(accelarated)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(accelarated main.cpp)
+add_executable(accelarated algo/insertion_sort/main.cpp utils/utils.cpp utils/utils.h)
